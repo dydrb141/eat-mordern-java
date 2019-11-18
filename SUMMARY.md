@@ -1,5 +1,6 @@
 # Table of contents
 
 * [Chapter1](README.md)
-* [Untitled](untitled.md)
+* [Chapter2](untitled.md)
+* [chapter3](chapter3.md)
 
