@@ -1,25 +1,17 @@
 # Chapter 4
 
-## Getting Super Powers
+## 4.1 스트림이란 무엇인가?
+데이터 처리 연산을 지원하도록 소스에서 추출된 연속된 요소
 
-Becoming a super hero is a fairly straight forward process:
+2가지 특징
+* 파이프라이닝 : 게으름, 숏서킷등 최적화 제공 
+* 내부 반복: 내부 반복 자
 
-```
-$ give me super-powers
-```
+### 스트림과 컬렉션 차이
+* 컬렉션의 모든 요소는 컬렉션에 추가 하기전에 계산 되어야 함.
+* 스트림은 요청할 때만 요소를 계산
 
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
 
-Once you're strong enough, save the world:
-
-{% code title="hello.sh" %}
-```bash
-# Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
-{% endcode %}
 
 
 
