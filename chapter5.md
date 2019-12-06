@@ -32,7 +32,7 @@ numbers.stream()
 
 자바 9은 스트림의 요소를 효과적으로 선택할 수 있도록 takeWhile, dropWhile 지원
 
-#### TAKEWHILE활용
+#### TAKEWHILE 활용
 
 ```java
 List<Dish> specialMenu = Arrays.asList(
@@ -47,8 +47,28 @@ List<Dish> specialMenu = Arrays.asList(
 ```java
 List<Dish> filteredMenu = specialMenu.stream()
                 .filter(dish -> dish.getCalories() < 320)
-                .collect(toList()); //seasonal fruit, prawns목
+                .collect(toList()); //seasonal fruit, prawns
 ```
 
-위와 같이 filter를 사용하면 모든 스트림을 반복하면서 각 요소에 프리디케이트를 적
+위와 같이 filter를 사용하면 모든 스트림을 반복하면서 각 요소에 프리디케이트를 적용
+
+```java
+List<Dish> sliceMenu = specialMenu.stream()
+        .takeWhile(dish -> dish.getCalories() < 320)
+        .collect(toList()); //seasonal fruit, prawns
+```
+
+위와 같이 takeWhile을 사용한다면 스트림 조건 중 false를 만날때 까지만 적용된다.
+
+#### DROPWHILE 활용
+
+takeWhile과 정 반대의 작업을 수
+
+```java
+List<Dish> sliceMenu = specialMenu.stream()
+        .dropWhile(dish -> dish.getCalories() < 320)
+        .collect(toList()); //rice, chicken, french fries
+```
+
+takeWhile은 false를 만날때 까지만 스트림을 반환하고 dorpWhile은 false가 나올때 부터 스트림을 반
 
