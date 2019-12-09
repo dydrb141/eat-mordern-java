@@ -70,5 +70,29 @@ List<Dish> sliceMenu = specialMenu.stream()
         .collect(toList()); //rice, chicken, french fries
 ```
 
-takeWhile은 false를 만날때 까지만 스트림을 반환하고 dorpWhile은 false가 나올때 부터 스트림을 반
+takeWhile은 false를 만날때 까지만 스트림을 반환하고 dorpWhile은 false가 나올때 부터 스트림을 반환
+
+#### 스트림 축소
+
+최대 n개의 요소를 반환 할 수 있다.
+
+```java
+List<Dish> filteredMenu = specialMenu.stream()
+                .filter(dish -> dish.getCalories() < 300)
+                .limit(3)
+                .collect(toList()); //rice, chicken, french fries
+```
+
+#### 요소 건너뛰기
+
+결과 스트림에 n개를 스킵하고 나머지 결과를 보여줌
+
+스킵의 n값이 결과 갯수보다 커도 스킵 함. 스킵해서 결과가 없으면 빈 스트림을 반환
+
+```java
+List<Dish> filteredMenu = specialMenu.stream()
+                .filter(dish -> dish.getCalories() < 300)
+                .skip(3)
+                .collect(toList());
+```
 
