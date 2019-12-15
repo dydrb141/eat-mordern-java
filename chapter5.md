@@ -96,3 +96,35 @@ List<Dish> filteredMenu = specialMenu.stream()
                 .collect(toList());
 ```
 
+### 5.3 매핑
+
+#### 스트림의 각 요소에 함수 적용
+
+* map은 인수로 제공된 함수는 각 요소에 적용되며 함수를 적용한 결과가 새로운 요소에 매핑
+* 고친다라는 개념보단 새로운 버전을 만든다는 개념
+
+#### 스트림 평면화
+
+\["Hello", "World"\] 리스트가 있다고 가정 했을때 Stream&lt;String&gt;을 리턴 받고 싶을 때 아래 코드처럼 ㅏㄴ다면 Stream&lt;String\[\]&gt; 형식이 된다.왜냐하면 split가 반환하는 형식이 String\[\]이기 때문이다.
+
+```java
+word.stream()
+    .map(word -> word.split(""))
+    .distinct()
+    .collect(toList());
+```
+
+#### flatMap사용 
+
+flatMap은 평면화된 스트림을 반환
+
+
+
+```java
+List<String> uniqueCharacters = words.
+                                     .map(word -> word.split(""))
+                                     .flatMap(Arrays::stream)
+                                     .distinct()
+                                     .collect(toList());
+```
+
